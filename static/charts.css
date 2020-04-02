@@ -1,0 +1,128 @@
+thead>tr{
+    border-bottom: 1px solid white;
+}
+
+th{
+    text-align: center;
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 360px; 
+    overflow-x: scroll;
+    margin: 1px;
+    max-width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+}
+
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table tr:hover {
+    background: grey;
+}
+
+.tabs-content.carousel { height: 100% } 
+
+.tabs-content.carousel .carousel-item { width: 100%; height: 100%; } 
+
+.nav-wrapper{
+    padding:5px;
+}
+
+html{
+    height: 100%;
+}
+
+.title{
+    font-size: 20px;
+}
+ 
+h1{
+    font-size: 25px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+#addFab{
+    position: fixed;
+    bottom: 50px;
+    right: 25px;
+}
+
+.card{
+    margin: 5px;
+    width: 400px;
+}
+
+#media-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #212121;
+}
+
+
+section:nth-child(1){
+    flex-direction: column;
+    flex-grow: 2;
+    justify-content: center;
+}
+
+section:nth-child(2){
+    display:flex;
+    flex-direction: row;
+    flex-grow: 8;
+    justify-content: center;
+}
+
+section>figure:nth-child(1){
+    flex-grow: 3;
+}
+
+section>figure:nth-child(2){
+    flex-grow: 9;
+}
+
+
+@media screen and (max-width: 700px) {
+    #media-list{
+        flex-direction: column;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    section:nth-child(2){
+        flex-direction: column;
+        max-width: 100%;
+    }
+}

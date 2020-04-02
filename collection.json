@@ -1,0 +1,706 @@
+{
+	"info": {
+		"_postman_id": "fa1ed4ad-3296-4537-9ffe-26db734e5034",
+		"name": "Lab Exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Record - Correct Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd0e2b37-8eef-4c9e-b47e-91481e7a3572",
+						"exec": [
+							"pm.test(\"Returns the proper response\", function () {",
+							"    pm.response.to.have.body(\"Record created!\");",
+							"});",
+							"",
+							"pm.test(\"Has proper status\", function () {",
+							"     pm.expect(pm.response.code).to.eql(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\":1584057600,\r\n    \"updateNum\":20,\r\n    \"url\":\"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3200040596692393/?type=3&theater\",\r\n    \"cases\":{\r\n        \"deaths\":0,\r\n        \"imported\":1,\r\n        \"community\":0,\r\n        \"contact\":0\r\n    },\r\n    \"tested\":63,\r\n    \"password\": \"MYSECRET\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{lehost}}/records",
+					"host": [
+						"{{lehost}}"
+					],
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Record - Correct Password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":1584057600,\r\n    \"updateNum\":20,\r\n    \"url\":\"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3200040596692393/?type=3&theater\",\r\n    \"cases\":{\r\n        \"deaths\":0,\r\n        \"imported\":1,\r\n        \"community\":0,\r\n        \"contact\":0\r\n    },\r\n    \"tested\":63,\r\n    \"password\": \"MYSECRET\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lehost}}/records",
+							"host": [
+								"{{lehost}}"
+							],
+							"path": [
+								"records"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Apr 2020 02:01:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Gitpod-Region",
+							"value": "production.gitpod-io.us-west1.02"
+						},
+						{
+							"key": "X-Gitpod-WorkspaceId",
+							"value": "d5a2b74e-2335-42d8-b185-02454b6fce91"
+						},
+						{
+							"key": "X-Gitpod-Port",
+							"value": "8080"
+						}
+					],
+					"cookie": [],
+					"body": "Record created!"
+				}
+			]
+		},
+		{
+			"name": "Create Record - Incorrect Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd0e2b37-8eef-4c9e-b47e-91481e7a3572",
+						"exec": [
+							"pm.test(\"Returns the proper response\", function () {",
+							"    pm.response.to.have.body(\"Invalid password!\");",
+							"});",
+							"",
+							"pm.test(\"Has proper status\", function () {",
+							"     pm.expect(pm.response.code).to.eql(401);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\":1584057600,\r\n    \"updateNum\":20,\r\n    \"url\":\"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3200040596692393/?type=3&theater\",\r\n    \"cases\":{\r\n        \"deaths\":0,\r\n        \"imported\":1,\r\n        \"community\":0,\r\n        \"contact\":0\r\n    },\r\n    \"tested\":63,\r\n    \"password\": \"badpass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{lehost}}/records",
+					"host": [
+						"{{lehost}}"
+					],
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Record - Incorrect Password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":1584057600,\r\n    \"updateNum\":20,\r\n    \"url\":\"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3200040596692393/?type=3&theater\",\r\n    \"cases\":{\r\n        \"deaths\":0,\r\n        \"imported\":1,\r\n        \"community\":0,\r\n        \"contact\":0\r\n    },\r\n    \"tested\":63,\r\n    \"password\": \"badpass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lehost}}/records",
+							"host": [
+								"{{lehost}}"
+							],
+							"path": [
+								"records"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Apr 2020 02:27:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Gitpod-Region",
+							"value": "production.gitpod-io.us-west1.02"
+						},
+						{
+							"key": "X-Gitpod-WorkspaceId",
+							"value": "d5a2b74e-2335-42d8-b185-02454b6fce91"
+						},
+						{
+							"key": "X-Gitpod-Port",
+							"value": "8080"
+						}
+					],
+					"cookie": [],
+					"body": "Invalid password!"
+				}
+			]
+		},
+		{
+			"name": "Get Records",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "96734131-ebeb-4b95-803c-180dfc72fb3b",
+						"exec": [
+							"",
+							"var schema = {  ",
+							"    \"type\": \"array\",",
+							"    \"items\": {",
+							"        \"type\": \"object\",",
+							"        \"properties\": {",
+							"            \"date\":{\"type\":\"number\"},",
+							"            \"updateNum\":{\"type\":\"number\"},",
+							"            \"id\":{\"type\":\"number\"},",
+							"            \"url\":{\"type\":\"string\"},",
+							"            \"tested\":{\"type\":\"number\"},",
+							"            \"cases\":{",
+							"                \"type\":\"object\",",
+							"                \"properties\":{",
+							"                    \"deaths\": {\"type\": \"number\"},",
+							"                    \"imported\":{\"type\":\"number\"},",
+							"                    \"community\":{\"type\":\"number\"},",
+							"                    \"contact\":{\"type\":\"number\"},",
+							"                }",
+							"          },",
+							"        },",
+							"        \"required\": [ \"date\", \"updateNum\", \"id\", \"url\", \"cases\", \"tested\"]",
+							"    }",
+							"  }",
+							"",
+							"pm.test(",
+							"    `Records data should contain properties; date, updateNum, url, cases.deaths, cases.imported, cases.community, cases.contact, tested & id`, ",
+							"    function() {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+							"    }",
+							");",
+							"",
+							"pm.test(\"Must have atleast 27 records from json file\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.gt(27);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{lehost}}/records",
+					"host": [
+						"{{lehost}}"
+					],
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Records",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lehost}}/records",
+							"host": [
+								"{{lehost}}"
+							],
+							"path": [
+								"records"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Apr 2020 02:38:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Gitpod-Region",
+							"value": "production.gitpod-io.us-west1.02"
+						},
+						{
+							"key": "X-Gitpod-WorkspaceId",
+							"value": "d5a2b74e-2335-42d8-b185-02454b6fce91"
+						},
+						{
+							"key": "X-Gitpod-Port",
+							"value": "8080"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"date\": 1583971200,\n        \"updateNum\": 18,\n        \"url\": \"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3198283573534762/?type=3&theater\",\n        \"cases\": {\n            \"deaths\": 0,\n            \"imported\": 1,\n            \"community\": 0,\n            \"contact\": 0\n        },\n        \"tested\": 52\n    },\n    {\n        \"id\": 4,\n        \"date\": 1584057600,\n        \"updateNum\": 20,\n        \"url\": \"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3200040596692393/?type=3&theater\",\n        \"cases\": {\n            \"deaths\": 0,\n            \"imported\": 1,\n            \"community\": 0,\n            \"contact\": 0\n        },\n        \"tested\": 63\n    },\n    {\n        \"id\": 5,\n        \"date\": 1584057600,\n        \"updateNum\": 20,\n        \"url\": \"https://www.facebook.com/MinistryofHealthTT/photos/a.153051404724676/3200040596692393/?type=3&theater\",\n        \"cases\": {\n            \"deaths\": 0,\n            \"imported\": 1,\n            \"community\": 0,\n            \"contact\": 0\n        },\n        \"tested\": 63\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Delete Record - Correct Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86f251f2-a43d-4650-acc3-fce0f9cfcb49",
+						"exec": [
+							"pm.test(\"Has proper status\", function () {",
+							"     pm.expect(pm.response.code).to.eql(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"MYSECRET\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{lehost}}/records/3",
+					"host": [
+						"{{lehost}}"
+					],
+					"path": [
+						"records",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Record - Correct Password",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"MYSECRET\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lehost}}/records/3",
+							"host": [
+								"{{lehost}}"
+							],
+							"path": [
+								"records",
+								"3"
+							]
+						}
+					},
+					"status": "NO CONTENT",
+					"code": 204,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Apr 2020 02:32:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Gitpod-Region",
+							"value": "production.gitpod-io.us-west1.02"
+						},
+						{
+							"key": "X-Gitpod-WorkspaceId",
+							"value": "d5a2b74e-2335-42d8-b185-02454b6fce91"
+						},
+						{
+							"key": "X-Gitpod-Port",
+							"value": "8080"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Record - Incorrect Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e6913c0-b7a9-4c31-b472-52e8f51de1db",
+						"exec": [
+							"pm.test(\"Returns the proper response\", function () {",
+							"    pm.response.to.have.body(\"Invalid password!\");",
+							"});",
+							"",
+							"pm.test(\"Has proper status\", function () {",
+							"     pm.expect(pm.response.code).to.eql(401);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"badpass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{lehost}}/records/3",
+					"host": [
+						"{{lehost}}"
+					],
+					"path": [
+						"records",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Record - Incorrect Password",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"badpass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lehost}}/records/3",
+							"host": [
+								"{{lehost}}"
+							],
+							"path": [
+								"records",
+								"3"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Apr 2020 02:30:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Gitpod-Region",
+							"value": "production.gitpod-io.us-west1.02"
+						},
+						{
+							"key": "X-Gitpod-WorkspaceId",
+							"value": "d5a2b74e-2335-42d8-b185-02454b6fce91"
+						},
+						{
+							"key": "X-Gitpod-Port",
+							"value": "8080"
+						}
+					],
+					"cookie": [],
+					"body": "Invalid password!"
+				}
+			]
+		},
+		{
+			"name": "Delete Record - Bad Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86f251f2-a43d-4650-acc3-fce0f9cfcb49",
+						"exec": [
+							"pm.test(\"Has proper status\", function () {",
+							"     pm.expect(pm.response.code).to.eql(404);",
+							"});",
+							"",
+							"pm.test(\"Returns the proper response\", function () {",
+							"    pm.response.to.have.body(\"Record does not exist!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"MYSECRET\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{lehost}}/records/100",
+					"host": [
+						"{{lehost}}"
+					],
+					"path": [
+						"records",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Record - Bad Id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"MYSECRET\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lehost}}/records/100",
+							"host": [
+								"{{lehost}}"
+							],
+							"path": [
+								"records",
+								"100"
+							]
+						}
+					},
+					"status": "NOT FOUND",
+					"code": 404,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.1"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 02 Apr 2020 02:34:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-Gitpod-Region",
+							"value": "production.gitpod-io.us-west1.02"
+						},
+						{
+							"key": "X-Gitpod-WorkspaceId",
+							"value": "d5a2b74e-2335-42d8-b185-02454b6fce91"
+						},
+						{
+							"key": "X-Gitpod-Port",
+							"value": "8080"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "Record does not exist!"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

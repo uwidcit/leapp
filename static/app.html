@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Covid19 T&T</title>
+
+     <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="charts.css"></link>
+    <link rel="stylesheet" href="main.css"></link>
+
+
+    <link rel="icon" type="image/png" sizes="192x192"  href="./assets/img/192.png">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#E53935">
+
+    <meta name="theme-color" content="#e53935">
+
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav-wrapper red darken-2">
+                <span class="title">Covid 19 In T&T</span>
+            </div>
+            <div class="nav-content red darken-2">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a class="active"id="statusTab"  role="button" href="#status">Status</a></li>
+                    <li class="tab"><a href="#media" id="mediaTab" role="button" >Media Releases</a></li>
+                </ul>
+            </div>
+        </nav>    
+    </div>
+
+    <main id="status" class="col s12 grey darken-4 white-text" style="text-align: center;" >
+  
+        <section>
+            <h1>Detected Cases: <span id="cases"></span></h1>
+
+            <p>Last Updated: <span id="date"></span></p>
+
+            <p>Lastest Update #: <span id="updateNum"></span></p>
+        </section>
+
+        <section>
+            <figure class="highcharts-figure">
+                <h1>Detected Cases</h1>
+                <div id="piechart"></div>
+            </figure>
+
+            <figure class="highcharts-figure">
+                <h1> Growth of Cases since March 11 2020</h1>
+                <h2> Source: MoH Facebook Page</h2>
+                <div id="linechart"></div>
+            </figure>
+        </section>
+
+    </main>
+
+    <main id="media" class=" darken-4 white-text">
+        <section id="media-list">
+            <!-- Example template of card to written by javascript  -->
+            <!-- Where record.id is 4 -->
+            <!--
+               <div class="card" id="card4">
+                    <div class="card-content black-text">
+                        <span class="card-title">Update #: 50</span>
+                        <p>Date: 3/26/2020</p>
+                        <p>Tested: 415</p>
+                        <p>Contact: undefined</p>
+                        <p>Imported Cases: 65</p>
+                        <p>Community Cases: 0</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://www.facebook.com/MinistryofHealthTT/photos/pcb.3230515336978252/3230510760312043/?type=3&theater" rel="noopener" target="_blank" style="font-weight: 700" class="red-text darken-2">View on Facebook</a>
+                        <a href="#deleteModal" id="del4" class="modal-trigger red-text darken-2" onclick="selected = 4" style="font-weight: 700">Delete</a>
+                    </div>
+                </div>
+             -->
+        </section>
+        <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" id="addFab" href="#addModal"><i class="material-icons">add</i></a>
+    </main>
+
+      <!-- Add Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h4>Add Update</h4>
+            <form class="col s12" name="createForm">
+                <div class="row">
+                    <div class="input-field col s8">
+                        <input placeholder="Enter admin password" name="password" type="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input placeholder="Update #" name="updateNum" type="number">
+                        <label for="updateNum">Update #</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s7">
+                         <input type="text" placeholder="url" name="url">
+                        <label for="url">MOH Post url</label>
+                    </div>
+                    <div class="input-field col s5">
+                         <input type="date" name="date">
+                        <label for="date">Date</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" name="imported" type="number">
+                        <label for="imported">Imported</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" name="community" type="number">
+                        <label for="community">Community</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" name="contact" type="number">
+                        <label for="contact">Contact</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" name="deaths" type="number">
+                        <label for="tested">Deaths</label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" name="tested" type="number">
+                        <label for="tested">Tested</label>
+                    </div>
+                 </div>
+                <div class="row">     
+                    <button class="btn waves-effect waves-light modal-close right red" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h4>Delete Record ID: <span id="selected"></span></h4>
+            <form class="col s12" name="deleteForm">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Enter Admin Password" name="password2" type="password">
+                        <label for="password2">Password</label>
+                    </div>
+                </div>
+                <div class="row">     
+                    <button class="btn waves-effect waves-light modal-close right red" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <!-- Additional files for the Highslide popup effect -->
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+    <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
+        
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="charts.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

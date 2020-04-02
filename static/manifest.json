@@ -1,0 +1,29 @@
+{
+    "name" : "T&T Covid19",
+	"short_name" : "T&T Covid19",
+    "start_url" : "index.html",
+	"scope" : ".",
+	"display" : "fullscreen",
+	"background_color" : "#e53935",
+	"theme_color" : "#e53935",
+	"url" : "https://covid19tt.web.app",
+	"orientation" : "portrait",
+	"icons" : [
+        {
+            "src": "./assets/img/512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/img/192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/img/maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
