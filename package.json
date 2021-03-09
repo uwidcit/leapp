@@ -6,7 +6,7 @@
   "scripts": {
     "server": "python3 app/main.py",
     "init": "python3 app/initDB.py",
-    "test-frontend": "mocha tests/test.js | tee reports/frontent-report.txt; return 0;",
+    "test-frontend": "mocha tests/test.js | tee reports/frontend-report.txt; return 0;",
     "test-backend": "newman run tests/collection.json -e environment.json | tee reports/backend-report.txt; return 0;"
   },
   "repository": {
