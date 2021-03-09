@@ -22,10 +22,6 @@ app.app_context().push()
 ''' End Boilerplate Code '''
 
 @app.route('/')
-def index():
-  return 'Hello World!'
-
-@app.route('/app')
 def client_app():
   return app.send_static_file('app.html')
 
