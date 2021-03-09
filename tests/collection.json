@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bd0e2b37-8eef-4c9e-b47e-91481e7a3572",
 						"exec": [
 							"pm.test(\"Returns the proper response\", function () {",
 							"    pm.response.to.have.body(\"Record created!\");",
@@ -38,14 +37,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{lehost}}/records",
+					"raw": "{{host}}/records",
 					"host": [
-						"{{lehost}}"
+						"{{host}}"
 					],
 					"path": [
 						"records"
 					]
-				}
+				},
+				"description": "Creates a record if the password supplied is correct."
 			},
 			"response": [
 				{
@@ -124,7 +124,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bd0e2b37-8eef-4c9e-b47e-91481e7a3572",
 						"exec": [
 							"pm.test(\"Returns the proper response\", function () {",
 							"    pm.response.to.have.body(\"Invalid password!\");",
@@ -151,14 +150,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{lehost}}/records",
+					"raw": "{{host}}/records",
 					"host": [
-						"{{lehost}}"
+						"{{host}}"
 					],
 					"path": [
 						"records"
 					]
-				}
+				},
+				"description": "Gives a error message when the password is incorrect."
 			},
 			"response": [
 				{
@@ -237,7 +237,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "96734131-ebeb-4b95-803c-180dfc72fb3b",
 						"exec": [
 							"",
 							"var schema = {  ",
@@ -265,7 +264,7 @@
 							"  }",
 							"",
 							"pm.test(",
-							"    `Records data should contain properties; date, updateNum, url, cases.deaths, cases.imported, cases.community, cases.contact, tested & id`, ",
+							"    `Records data should contain proerties; date, updateNum, url, cases.deaths, cases.imported, cases.community, cases.contact, tested & id`, ",
 							"    function() {",
 							"        var jsonData = pm.response.json();",
 							"        pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
@@ -274,7 +273,7 @@
 							"",
 							"pm.test(\"Must have atleast 27 records from json file\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.length).to.gt(27);",
+							"    pm.expect(jsonData.length).to.gt(26);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -285,14 +284,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{lehost}}/records",
+					"raw": "{{host}}/records",
 					"host": [
-						"{{lehost}}"
+						"{{host}}"
 					],
 					"path": [
 						"records"
 					]
-				}
+				},
+				"description": "Gets all the records in the database as a json array"
 			},
 			"response": [
 				{
@@ -366,7 +366,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "86f251f2-a43d-4650-acc3-fce0f9cfcb49",
 						"exec": [
 							"pm.test(\"Has proper status\", function () {",
 							"     pm.expect(pm.response.code).to.eql(204);",
@@ -389,15 +388,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{lehost}}/records/3",
+					"raw": "{{host}}/records/3",
 					"host": [
-						"{{lehost}}"
+						"{{host}}"
 					],
 					"path": [
 						"records",
 						"3"
 					]
-				}
+				},
+				"description": "Deletes the record if its ID exists and the password is correct."
 			},
 			"response": [
 				{
@@ -473,7 +473,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6e6913c0-b7a9-4c31-b472-52e8f51de1db",
 						"exec": [
 							"pm.test(\"Returns the proper response\", function () {",
 							"    pm.response.to.have.body(\"Invalid password!\");",
@@ -500,15 +499,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{lehost}}/records/3",
+					"raw": "{{host}}/records/3",
 					"host": [
-						"{{lehost}}"
+						"{{host}}"
 					],
 					"path": [
 						"records",
 						"3"
 					]
-				}
+				},
+				"description": "Gives an error message when the password is wrong."
 			},
 			"response": [
 				{
@@ -588,7 +588,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "86f251f2-a43d-4650-acc3-fce0f9cfcb49",
 						"exec": [
 							"pm.test(\"Has proper status\", function () {",
 							"     pm.expect(pm.response.code).to.eql(404);",
@@ -615,15 +614,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{lehost}}/records/100",
+					"raw": "{{host}}/records/100",
 					"host": [
-						"{{lehost}}"
+						"{{host}}"
 					],
 					"path": [
 						"records",
 						"100"
 					]
-				}
+				},
+				"description": "Gives an error message if the given ID does not exist in the database."
 			},
 			"response": [
 				{
@@ -701,6 +701,5 @@
 				}
 			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

@@ -1,8 +1,11 @@
 const puppeteer = require('puppeteer');
 const { expect, assert }  = require('chai');
 const tv4 = require('tv4');
+const environment = require('../environment.json');
 
-let URL ="https://8080-d5a2b74e-2335-42d8-b185-02454b6fce91.ws-us02.gitpod.io";
+
+
+let URL = environment.values[0].value;
 const HEADLESS = true;
 const TIMEOUT = 12000;
 const EXAMMODE = false;

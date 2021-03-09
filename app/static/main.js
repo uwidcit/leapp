@@ -1,5 +1,5 @@
 let selected;
-const server = "https://8080-d5a2b74e-2335-42d8-b185-02454b6fce91.ws-us02.gitpod.io";
+const server = "";
 
 //converts a form date value into an integer unix timestamp
 function toTimestamp(strDate){

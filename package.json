@@ -4,8 +4,10 @@
   "description": "[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/uwidcit/info2602mockLE)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "newman run collection.json -g globals.json; return 0;"
+    "server": "python3 app/main.py",
+    "init": "python3 app/initDB.py",
+    "test-frontend": "mocha tests/test.js | tee reports/frontent-report.txt; return 0;",
+    "test-backend": "newman run tests/collection.json -e environment.json | tee reports/backend-report.txt; return 0;"
   },
   "repository": {
     "type": "git",
