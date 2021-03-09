@@ -21,13 +21,57 @@ app.app_context().push()
 
 ''' End Boilerplate Code '''
 
-@app.route('/')
-def index():
-  return 'Hello World!'
 
-@app.route('/app')
+@app.route('/')
 def client_app():
   return app.send_static_file('app.html')
+
+@app.route('/records', methods=['POST'])
+def create_record():
+    data = request.get_json()
+
+    if 'password' not in data:
+        return 'Invalid password!', 401
+
+    if data['password'] != app.config['SECRET_KEY']:
+        return 'Invalid password!', 401
+
+    record = Records(
+        date = data['date'], 
+        updateNum = data['updateNum'], 
+        url = data['url'], 
+        deaths = data['cases']['deaths'],
+        imported = data['cases']['imported'],
+        contact = data['cases']['contact'],
+        community = data['cases']['community'],
+        tested = data['tested']
+    )
+    db.session.add(record)
+    db.session.commit()
+    return 'Record created!', 201
+
+@app.route('/records', methods=['GET'])
+def get_records():
+    records = Records.query.all()
+    records = [record.toDict() for record in records]
+    return json.dumps(records)
+
+@app.route('/records/<id>', methods=['DELETE'])
+def delete_record(id):
+    data = request.get_json()
+    record = Records.query.get(id)
+
+    if 'password' not in data:
+        return 'Invalid password!', 401
+
+    if data['password'] != app.config['SECRET_KEY']:
+        return 'Invalid password!', 401
+
+    if not record:
+        return 'Record does not exist!', 404 
+    
+    db.session.delete(record)
+    db.session.commit()
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080, debug=True)
