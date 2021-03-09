@@ -23,7 +23,11 @@ app.app_context().push()
 
 @app.route('/')
 def index():
-  return 'Hello World! go to <a href="/app">APP</a>'
+  return 'Hello World!'
+
+@app.route('/app')
+def client_app():
+  return app.send_static_file('app.html')
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080, debug=True)
